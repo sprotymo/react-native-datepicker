@@ -31,7 +31,7 @@ class DatePicker extends Component {
       modalVisible: false,
       animatedHeight: new Animated.Value(0),
       allowPointerEvents: true,
-      isPicker: false,
+      isPicker: false
     };
 
     this.getDate = this.getDate.bind(this);
@@ -181,7 +181,7 @@ class DatePicker extends Component {
     );
   }
 
-  onDateChange(event,date) {
+  onDateChange(event, date) {
     this.setState({
       allowPointerEvents: false,
       date: date
@@ -194,23 +194,23 @@ class DatePicker extends Component {
     }, 200);
   }
 
-  onDatePicked(event,date) {
+  onDatePicked(event, date) {
     if (date === undefined) {
-      this.setState({isPicker: false})
-    }else {
+      this.setState({isPicker: false});
+    } else {
       this.setState({
         date: Moment(date),
         isPicker: false
       });
       this.datePicked();
     }
-  
+
   }
 
   onTimePicked(event, time) {
     if (time === undefined) {
-      this.setState({isPicker: false})
-    }else{
+      this.setState({isPicker: false});
+    } else {
       this.setState({
         date: Moment(time),
         isPicker: false
@@ -373,8 +373,8 @@ class DatePicker extends Component {
               </TouchableComponent>
             </View>
           </Modal>}
-          {(mode === 'time' && this.state.isPicker)?<DateTimePicker mode="time" value={this.state.date} onChange={this.onTimePicked}/>:null}
-          {(mode === 'date' && this.state.isPicker)?<DateTimePicker mode="date" minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)} value={this.state.date} onChange={this.onDatePicked}/>:null}
+          {(mode === 'time' && this.state.isPicker) ? <DateTimePicker mode="time" value={this.state.date} onChange={this.onTimePicked}/> : null}
+          {(mode === 'date' && this.state.isPicker) ? <DateTimePicker mode="date" minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)} value={this.state.date} onChange={this.onDatePicked}/> : null}
         </View>
       </TouchableComponent>
     );
